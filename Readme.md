@@ -9,12 +9,14 @@ apksigner.jar在版本>25的SDK\build-tools\中。
  1. 无需记忆复杂的命令行，点击几下即可方便快速的签名。
  2. 使用xml格式配置签名密钥，可以配置多个签名密钥。
 
- 
+
+![xx](http://git.51songguo.com:8080/app-songguo/app-doc/raw/doc_demon/imgs/9.0.png)  
+
 ### 使用说明
 
 #### 下载源码编译运行
 
-1. 下载代码到你的电脑，导入到IDEA中运行，编译完成后，点击Run Main运行。
+1. clone/下载代码到你的电脑，导入到IDEA中运行，编译完成后，点击Run Main运行。
  
 2. 程序初始化后会先读取默认的签名配置文件（代码根目录\config.xml）
  
@@ -30,7 +32,9 @@ apksigner.jar在版本>25的SDK\build-tools\中。
   
 4. 修改代码，适应你的需求。
  
-#### 下载zip运行
+#### [下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.0)
+
+[点击下载](https://github.com/iDeMonnnnnn/SignatureTools/releases/download/v1.0/ApkSignTools.zip)
 
 1. 解压后，双击"ApkSignTools.exe"运行签名程序。
 
