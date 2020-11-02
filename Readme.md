@@ -10,7 +10,7 @@ apksigner.jar在版本>25的SDK\build-tools\中。
  2. 使用xml格式配置签名密钥，可以配置多个签名密钥。
 
 
-![xx](http://git.51songguo.com:8080/app-songguo/app-doc/raw/doc_demon/imgs/9.0.png)  
+![xx](https://github.com/iDeMonnnnnn/SignatureTools/blob/master/20201102185505.png?raw=true)  
 
 ### 使用说明
 
@@ -26,7 +26,7 @@ apksigner.jar在版本>25的SDK\build-tools\中。
  
    - 编辑完，点保存关闭后。点击“编辑后，刷新密钥配置”，重新读取配置。
    
-   - 可以参考config.xml格式，复制班级保存未新的签名配置，签名前选择新密钥配置即可。
+   - 可以参考config.xml格式，复制编辑保存成新的签名配置，签名前选择新密钥配置即可。
    
 3. 选择一个未签名的apk签名，可以验证签名状态，然后打开签名后Apk的位置。
   
@@ -46,7 +46,7 @@ apksigner.jar在版本>25的SDK\build-tools\中。
  
    - 编辑完，点保存关闭后。点击“编辑后，刷新密钥配置”，重新读取配置。
    
-   - 可以参考config.xml格式，复制班级保存未新的签名配置，签名前选择新密钥配置即可。
+   - 可以参考config.xml格式，复制编辑保存成新未新的签名配置，签名前选择新密钥配置即可。
    
 3. 选择一个未签名的apk签名，可以验证签名状态，然后打开签名后Apk的位置。
 
