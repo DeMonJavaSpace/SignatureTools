@@ -4,11 +4,11 @@ Android7.0引入了全新的APK Signature Scheme v2签名方式，使用传统�
 
 apksigner.jar在版本>25的SDK\build-tools\中。  
  
-基于此，使用JavaFx编写了安卓Apk签名工具，方便快速签名。
+基于此，使用JavaFx编写了安卓Apk签名工具，方便快速进行v1&v2签名。
 
  1. 无需记忆复杂的命令行，点击几下即可方便快速的签名。
  2. 使用xml格式配置签名密钥，可以配置多个签名密钥。
-
+ 3. 开放源码，无需担心恶意工具入侵你的Apk。
 
 ![xx](https://github.com/iDeMonnnnnn/SignatureTools/blob/master/20201102185505.png?raw=true)  
 
