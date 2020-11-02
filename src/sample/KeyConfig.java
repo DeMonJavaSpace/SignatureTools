@@ -60,11 +60,11 @@ public class KeyConfig {
         }
 
         if (!new File(path).exists()) {
-            return new Pair(false, "密钥文件不存在，请检查！");
+            return new Pair(false, "密钥文件路径不存在，请检查！");
         }
 
         if (!path.endsWith(".keystore") && !path.endsWith(".jks")) {
-            return new Pair(false, "密钥文件格式有误，请检查！");
+            return new Pair(false, "密钥文件路径格式有误，请检查！");
         }
 
         return new Pair(true, "密钥配置文件初步检查通过，可进行下一步！");

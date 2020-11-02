@@ -95,7 +95,7 @@ public class Controller implements Initializable {
     public void openApk(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("选择待签名Apk");
-        File file = new File(tfKey.getText()).getParentFile();
+        File file = new File(tfApk.getText()).getParentFile();
         if (file != null && file.exists()) {
             fileChooser.setInitialDirectory(file);
         } else {

@@ -22,8 +22,8 @@
         <Label layoutX="49.0" layoutY="226.0" text="第四步" />
         <Label layoutX="371.0" layoutY="226.0" text="第五步" />
         <Label layoutX="525.0" layoutY="183.0" text="第三步" />
-        <Button layoutX="572.0" layoutY="179.0" onAction="#signOld" text="旧v1签名" wrapText="true" />
-        <Button layoutX="652.0" layoutY="179.0" onAction="#signNew" text="新v1&amp;v2签名" wrapText="true" />
+        <Button layoutX="684.0" layoutY="179.0" onAction="#signOld" text="旧v1签名" wrapText="true"/>
+        <Button layoutX="570.0" layoutY="179.0" onAction="#signNew" text="新v1&amp;v2签名" wrapText="true" />
       <Button layoutX="561.0" layoutY="32.0" onAction="#editKey" text="编辑密钥配置" wrapText="true" />
       <Button layoutX="649.0" layoutY="32.0" onAction="#refreshKey" text="编辑后，刷新密钥配置" wrapText="true" />
     </children>
