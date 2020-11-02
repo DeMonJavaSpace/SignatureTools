@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="SignTools">
+    <output-path>$PROJECT_DIR$/../SignTools</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="height" value="500" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="Sign" />
+        <option name="vendor" value="DeMon" />
+        <option name="version" value="1.0" />
+        <option name="width" value="800" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Apk_Signature_Tools.jar">
+        <element id="module-output" name="Apk_Signature_Tools" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -34,7 +34,39 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //初始加载默认的密钥配置文件
+        File keyFile = new File(System.getProperty("user.dir") + "/config.xml");
+        if (keyFile.exists()) {
+            String path = keyFile.getPath();
+            tfKey.setText(path);
+            XMlHelper.xmlParser(path);
+            isKeyOk = KeyConfig.getInstance().checkKey().getKey();
+            tvMsg.setText(KeyConfig.getInstance().checkKey().getValue());
+        } else {
+            tvMsg.setText("加载默认密钥配置文件失败，请手动选择！");
+        }
+    }
 
+    public void refreshKey(ActionEvent actionEvent) {
+        File keyFile = new File(tfKey.getText());
+        if (keyFile.exists()) {
+            String path = keyFile.getPath();
+            tfKey.setText(path);
+            XMlHelper.xmlParser(path);
+            isKeyOk = KeyConfig.getInstance().checkKey().getKey();
+            tvMsg.setText(KeyConfig.getInstance().checkKey().getValue());
+        } else {
+            tvMsg.setText("刷新密钥配置文件失败，请手动选择！");
+        }
+    }
+
+    public void editKey(ActionEvent actionEvent) {
+        File file = new File(tfKey.getText());
+        if (file.exists()) {
+            Utils.openUrl(tfKey.getText());
+        } else {
+            tvMsg.setText("编辑密钥配置文件失败，请手动选择！");
+        }
     }
 
     public void openKey(ActionEvent actionEvent) {
@@ -51,7 +83,7 @@ public class Controller implements Initializable {
 
         );
         File keyFile = fileChooser.showOpenDialog(getStage());
-        if (keyFile != null) {
+        if (keyFile != null && keyFile.exists()) {
             String path = keyFile.getPath();
             tfKey.setText(path);
             XMlHelper.xmlParser(path);
@@ -78,13 +110,12 @@ public class Controller implements Initializable {
             String path = apkFile.getPath();
             tfApk.setText(path);
             tfSign.setText("");
+            isApkOk = true;
             String msg = Utils.exeCmd("java -jar apksigner.jar verify -v " + path);
             if (Utils.isEmpty(msg)) {
                 tvMsg.setText("Apk尚未签名，可以开始签名！");
-                isApkOk = true;
             } else {
-                tvMsg.setText(msg);
-                isApkOk = false;
+                tvMsg.setText("Apk已签名，可以尝试重新签名！\n"+msg);
             }
         }
     }
@@ -96,16 +127,17 @@ public class Controller implements Initializable {
             String cmd = "jarsigner -verbose -keystore " + KeyConfig.getInstance().getPath()
                     + " -storepass " + KeyConfig.getInstance().getStorePassword()
                     + " -keypass " + KeyConfig.getInstance().getKeyPassword()
-                    + " -sigfile CERT -signedjar "
+                    + " -signedjar "
                     + signPath + " "
                     + tfApk.getText() + " "
-                    + KeyConfig.getInstance().getKeyAlias();
+                    + KeyConfig.getInstance().getKeyAlias()
+                    + " -sigfile CERT";
             String msg = Utils.exeCmd(cmd);
-            if (new File(signPath).exists()) {
+            if (new File(signPath).exists() && msg.contains("META-INF/MANIFEST.MF")) {
                 tfSign.setText(signPath);
                 tvMsg.setText("旧v1签名成功！\n" + msg);
             } else {
-                tvMsg.setText("旧v1签名失败！可能存在的原因：\n密钥别名or密码配置错误！\n" + msg);
+                tvMsg.setText("旧v1签名失败！可能存在的原因：\n1.密钥别名or密码配置错误！\n2.已使用新v1&v2签名过的Apk，无法使用旧v1签名重新签名。\n" + msg);
             }
         }
     }
