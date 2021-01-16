@@ -58,6 +58,14 @@ apksigner.jar在版本>25的SDK\build-tools\中。
 jarsigner -verbose -keystore 你的密钥 -storepass 密钥密码 -keypass 别名密码 -sigfile CERT -signedjar 签名后的apk路径  待签名的apk  别名
 ```
 
+#### 新版v1&v2对齐
+
+由于写入多渠道空白文件会破坏App结构，所以要先使用zipalign对齐。
+
+```
+zipalign -v 4 " + 需要签名的apk +" "+ 对齐后的apk
+```
+
 #### 新版v1&v2签名
 ```
 java -jar apksigner.jar sign  --ks 你的密钥  --ks-key-alias 别名  --ks-pass pass:密钥密码  --key-pass pass:别名密码  --out 签名后的apk路径  待签名的apk   
