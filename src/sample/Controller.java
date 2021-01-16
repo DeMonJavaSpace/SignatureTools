@@ -6,15 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
-import java.nio.file.FileVisitOption;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -115,7 +111,7 @@ public class Controller implements Initializable {
             if (Utils.isEmpty(msg)) {
                 tvMsg.setText("Apk尚未签名，可以开始签名！");
             } else {
-                tvMsg.setText("Apk已签名，可以尝试重新签名！\n"+msg);
+                tvMsg.setText("Apk已签名，可以尝试重新签名！\n" + msg);
             }
         }
     }
@@ -138,12 +134,26 @@ public class Controller implements Initializable {
                 tvMsg.setText("旧v1签名成功！\n" + msg);
             } else {
                 tvMsg.setText("旧v1签名失败！可能存在的原因：\n1.密钥别名or密码配置错误！\n2.已使用新v1&v2签名过的Apk，无法使用旧v1签名重新签名。\n" + msg);
+                File signApk = new File(signPath);
+                if (signApk.exists()) {
+                    signApk.delete();
+                }
             }
         }
     }
 
     public void signNew(ActionEvent actionEvent) {
         if (checkStatus()) {
+            //对齐
+            String alignapk = new File(tfApk.getText()).getParent() + "\\sign_align-" + System.currentTimeMillis() + ".apk";
+            String align = "zipalign -v 4 " + tfApk.getText() + " " + alignapk;
+            String alignMsg = Utils.exeCmd(align);
+            if (new File(alignapk).exists()) {
+                tvMsg.setText("新v1&v2对齐成功！\n" + alignMsg);
+            } else {
+                tvMsg.setText("新v1&v2对齐失败！\n" + alignMsg);
+                return;
+            }
             String signPath = new File(tfApk.getText()).getParent() + "\\sign_new-" + System.currentTimeMillis() + ".apk";
             String cmd = "java -jar apksigner.jar sign  --ks " + KeyConfig.getInstance().getPath()
                     + " --ks-key-alias " + KeyConfig.getInstance().getKeyAlias()
@@ -151,13 +161,25 @@ public class Controller implements Initializable {
                     + " --key-pass pass:" + KeyConfig.getInstance().getKeyPassword()
                     + " --out "
                     + signPath + " "
-                    + tfApk.getText();
+                    + alignapk;
             String msg = Utils.exeCmd(cmd);
             if (new File(signPath).exists()) {
                 tfSign.setText(signPath);
                 tvMsg.setText("新v1&v2签名成功！\n" + msg);
+                File alignapkFile = new File(alignapk);
+                if (alignapkFile.exists()) {
+                    alignapkFile.delete();
+                }
             } else {
                 tvMsg.setText("新v1&v2签名失败！可能存在的原因：\n密钥别名or密码配置错误！\n" + msg);
+                File signApk = new File(signPath);
+                if (signApk.exists()) {
+                    signApk.delete();
+                }
+            }
+            File alignapkFile = new File(alignapk);
+            if (alignapkFile.exists()) {
+                alignapkFile.delete();
             }
         }
     }
