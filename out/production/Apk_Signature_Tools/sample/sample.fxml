@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane fx:id="root" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <children>
         <Button layoutX="438.0" layoutY="32.0" onAction="#openKey" text="选择密钥配置" wrapText="true" />
         <Button layoutX="426.0" layoutY="222.0" onAction="#openSign" text="获取签名后的Apk" wrapText="true" />
         <Button layoutX="561.0" layoutY="104.0" onAction="#openApk" text="选择待签名Apk" wrapText="true" />
@@ -26,6 +23,4 @@
         <Button layoutX="570.0" layoutY="179.0" onAction="#signNew" text="新v1&amp;v2签名" wrapText="true" />
       <Button layoutX="561.0" layoutY="32.0" onAction="#editKey" text="编辑密钥配置" wrapText="true" />
       <Button layoutX="649.0" layoutY="32.0" onAction="#refreshKey" text="编辑后，刷新密钥配置" wrapText="true" />
-    </children>
-
 </AnchorPane>
