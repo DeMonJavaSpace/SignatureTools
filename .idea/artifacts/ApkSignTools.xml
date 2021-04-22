@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="javafx" name="ApkSignTools">
-    <output-path>$PROJECT_DIR$/../../../Tools/ApkSignTools</output-path>
+    <output-path>$PROJECT_DIR$/out</output-path>
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="sample.Main" />
