@@ -17,6 +17,7 @@
     <root id="root">
       <element id="archive" name="Apk_Signature_Tools.jar">
         <element id="module-output" name="Apk_Signature_Tools" />
+        <element id="library" level="project" name="net.lingala.zip4j:zip4j:2.8.0" />
       </element>
     </root>
   </artifact>

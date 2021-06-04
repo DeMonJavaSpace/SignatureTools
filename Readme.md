@@ -10,11 +10,11 @@ apksigner.jar在版本>25的SDK\build-tools\中。
  2. 使用xml格式配置签名密钥，可以配置多个签名密钥。
  3. 开放源码，无需担心恶意工具入侵你的Apk。
 
-![xx](https://github.com/iDeMonnnnnn/SignatureTools/blob/master/20201102185505.png?raw=true)  
+![xx](https://github.com/iDeMonnnnnn/SignatureTools/blob/master/20201102185505.jpg?raw=true)  
 
 ### 使用说明
 
-#### 下载源码编译运行
+#### 1.下载源码编译运行
 
 1. clone/下载代码到你的电脑，导入到IDEA中运行，编译完成后，点击Run Main运行。
  
@@ -28,13 +28,11 @@ apksigner.jar在版本>25的SDK\build-tools\中。
    
    - 可以参考config.xml格式，复制编辑保存成新的签名配置，签名前选择新密钥配置即可。
    
-3. 选择一个未签名的apk签名，可以验证签名状态，然后打开签名后Apk的位置。
+3. 选择一个未签名的apk签名，配置渠道信息，然后打开签名后Apk的位置，验证签名状态。
   
 4. 修改代码，适应你的需求。
  
-#### [下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.1)
-
-[点击下载](https://github.com/iDeMonnnnnn/SignatureTools/releases/download/v1.0/ApkSignTools.zip)
+#### 2.[下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.1)
 
 1. 解压后，双击"ApkSignTools.exe"运行签名程序。
 
@@ -47,16 +45,15 @@ apksigner.jar在版本>25的SDK\build-tools\中。
    - 编辑完，点保存关闭后。点击“编辑后，刷新密钥配置”，重新读取配置。
    
    - 可以参考config.xml格式，复制编辑保存成新未新的签名配置，签名前选择新密钥配置即可。
-   
-3. 选择一个未签名的apk签名，可以验证签名状态，然后打开签名后Apk的位置。
 
+3. 选择一个未签名的apk签名，配置渠道信息，然后打开签名后Apk的位置，验证签名状态。
 
-### 签名相关命令
+### Apk渠道相关
 
-#### 旧版v1签名
-```
-jarsigner -verbose -keystore 你的密钥 -storepass 密钥密码 -keypass 别名密码 -sigfile CERT -signedjar 签名后的apk路径  待签名的apk  别名
-```
+基于[美团渠道包解决方案](https://tech.meituan.com/2014/06/13/mt-apk-packaging.html)  新增渠道写入功能。
+
+需要注意的点是，由于写入多渠道空白文件会破坏App结构，在v1签名下没有影响，但是会导致v2签名成功后校验失败无法安装。  
+为了解决这个问题，需要在写入渠道后，v2签名前，使用```zipalign.exe```先将apk对齐。  
 
 #### 新版v1&v2对齐
 
@@ -64,6 +61,13 @@ jarsigner -verbose -keystore 你的密钥 -storepass 密钥密码 -keypass 别�
 
 ```
 zipalign -v 4 " + 需要签名的apk +" "+ 对齐后的apk
+```
+
+### 签名相关命令
+
+#### 旧版v1签名
+```
+jarsigner -verbose -keystore 你的密钥 -storepass 密钥密码 -keypass 别名密码 -sigfile CERT -signedjar 签名后的apk路径  待签名的apk  别名
 ```
 
 #### 新版v1&v2签名
@@ -85,6 +89,10 @@ Verified using v2 scheme (APK Signature Scheme v2): true
 ```
 第一行对应的结果，表示是否已使用v1签名。  
 第二行对应的结果，表示是否已使用v2签名。
+
+### 问题&bug
+
+请[issues](https://github.com/DeMonJavaSpace/SignatureTools/issues)
 
 ### MIT License
 
