@@ -32,7 +32,7 @@ apksigner.jar在版本>25的SDK\build-tools\中。
   
 4. 修改代码，适应你的需求。
  
-#### 2.[下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.1)
+#### 2.[下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.2)
 
 1. 解压后，双击"ApkSignTools.exe"运行签名程序。
 
