@@ -100,6 +100,10 @@ Verified using v2 scheme (APK Signature Scheme v2): true
 
 请[issues](https://github.com/DeMonJavaSpace/SignatureTools/issues)
 
+### 更多
+
+关于作者更多JavaFx程序请访问: <https://github.com/DeMonJavaSpace>
+
 ### MIT License
 
 ```
