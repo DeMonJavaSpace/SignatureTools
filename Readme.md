@@ -13,7 +13,6 @@ apksigner.jar在版本>25的SDK\build-tools\中。
 ![xx](https://github.com/iDeMonnnnnn/SignatureTools/blob/master/20201102185505.jpg?raw=true)  
 
 ### 使用说明
-
 #### 运行环境
 1. Windows系统
 2. JDK1.8环境变量
@@ -61,13 +60,17 @@ apksigner.jar在版本>25的SDK\build-tools\中。
 需要注意的点是，由于写入多渠道空白文件会破坏App结构，在v1签名下没有影响，但是会导致v2签名成功后校验失败无法安装。  
 为了解决这个问题，需要在写入渠道后，v2签名前，使用```zipalign.exe```先将apk对齐。  
 
-#### 新版v1&v2对齐
+#### zipalign对齐
 
 由于写入多渠道空白文件会破坏App结构，所以要先使用zipalign对齐。
 
 ```
 zipalign -v 4 " + 需要签名的apk +" "+ 对齐后的apk
 ```
+
+#### 注意
+
+```zipalign.exe```位于AndroidSDK的```build-tools```目录下，不同的系统平台会有差异。
 
 ### 签名相关命令
 
