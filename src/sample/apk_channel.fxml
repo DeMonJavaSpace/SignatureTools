@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ChannelController">
+    <children>
+        <Label layoutX="22.0" layoutY="22.0" text="渠道：多个渠道使用;隔开，填完后点击刷新"/>
+        <TextArea fx:id="tfChannel" layoutX="16.0" layoutY="84.0" prefHeight="145.0" prefWidth="570.0" wrapText="true"/>
+        <Button layoutX="401.0" layoutY="52.0" mnemonicParsing="false" onAction="#doRefresh" text="保存&amp;刷新"/>
+        <Button layoutX="14.0" layoutY="275.0" mnemonicParsing="false" onAction="#doAll" text="全选"/>
+        <Button layoutX="66.0" layoutY="275.0" mnemonicParsing="false" onAction="#doAllNo" text="全不选"/>
+        <ScrollPane layoutX="16.0" layoutY="309.0" prefHeight="177.0" prefWidth="570.0">
+            <content>
+                <TilePane fx:id="tilePane" hgap="5" prefTileWidth="100" prefWidth="550.0" tileAlignment="TOP_LEFT" vgap="5">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </TilePane>
+            </content>
+        </ScrollPane>
+        <Button layoutX="401.0" layoutY="264.0" mnemonicParsing="false" onAction="#doSave" text="保存渠道选择"/>
+        <Label layoutX="16.0" layoutY="243.0" text="Console:"/>
+        <Label fx:id="tvConsole" layoutX="72.0" layoutY="243.0" textFill="#d33737"/>
+        <Label layoutX="22.0" layoutY="56.0" text="渠道前缀标识"/>
+        <TextField layoutX="110.0" layoutY="52.0" text="cztchannel" fx:id="tfChannelKey"/>
+    </children>
+</AnchorPane>

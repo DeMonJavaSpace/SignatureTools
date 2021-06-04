@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-        <Button layoutX="438.0" layoutY="32.0" onAction="#openKey" text="选择密钥配置" wrapText="true" />
-        <Button layoutX="426.0" layoutY="222.0" onAction="#openSign" text="获取签名后的Apk" wrapText="true" />
-        <Button layoutX="561.0" layoutY="104.0" onAction="#openApk" text="选择待签名Apk" wrapText="true" />
-        <Button layoutX="113.0" layoutY="222.0" onAction="#startStatus" text="校验签名状态" wrapText="true" />
-        <TextField fx:id="tfKey" editable="false" layoutX="85.0" layoutY="32.0" prefHeight="23.0" prefWidth="293.0" />
-        <Label layoutX="25.0" layoutY="36.0" text="密钥配置" />
-        <Label layoutX="14.0" layoutY="108.0" text="待签名Apk" />
-        <Label layoutX="14.0" layoutY="185.0" text="签名后的Apk" />
-        <TextField fx:id="tfApk" editable="false" layoutX="85.0" layoutY="104.0" prefHeight="23.0" prefWidth="368.0" />
-        <TextField fx:id="tfSign" editable="false" layoutX="98.0" layoutY="181.0" prefHeight="15.0" prefWidth="384.0" />
-        <Label fx:id="tvMsg" alignment="TOP_LEFT" layoutX="26.0" layoutY="268.0" prefHeight="178.0" prefWidth="742.0" textFill="#d33737" />
-        <Label layoutX="397.0" layoutY="36.0" text="第一步" />
-        <Label layoutX="518.0" layoutY="108.0" text="第二步" />
-        <Label layoutX="49.0" layoutY="226.0" text="第四步" />
-        <Label layoutX="371.0" layoutY="226.0" text="第五步" />
-        <Label layoutX="525.0" layoutY="183.0" text="第三步" />
-        <Button layoutX="684.0" layoutY="179.0" onAction="#signOld" text="旧v1签名" wrapText="true"/>
-        <Button layoutX="570.0" layoutY="179.0" onAction="#signNew" text="新v1&amp;v2签名" wrapText="true" />
-      <Button layoutX="561.0" layoutY="32.0" onAction="#editKey" text="编辑密钥配置" wrapText="true" />
-      <Button layoutX="649.0" layoutY="32.0" onAction="#refreshKey" text="编辑后，刷新密钥配置" wrapText="true" />
+
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignedController">
+        <children>
+                <Button layoutX="464.0" layoutY="32.0" onAction="#openKey" text="选择密钥配置" wrapText="true" />
+                <Button layoutX="98.0" layoutY="264.0" onAction="#openSign" text="获取签名后的Apk" wrapText="true" />
+                <Button layoutX="561.0" layoutY="104.0" onAction="#openApk" text="选择待签名Apk" wrapText="true" />
+                <Button layoutX="345.0" layoutY="264.0" onAction="#startStatus" text="校验签名状态" wrapText="true" />
+                <TextField fx:id="tfKey" editable="false" layoutX="99.0" layoutY="32.0" prefHeight="23.0" prefWidth="293.0" />
+                <Label layoutX="14.0" layoutY="36.0" text="密钥配置" />
+                <Label layoutX="14.0" layoutY="108.0" text="待签名Apk" />
+                <Label layoutX="14.0" layoutY="216.0" text="签名后的Apk" />
+                <TextField fx:id="tfApk" editable="false" layoutX="96.0" layoutY="104.0" prefHeight="23.0" prefWidth="368.0" />
+                <TextField fx:id="tfSign" editable="false" layoutX="98.0" layoutY="212.0" prefHeight="15.0" prefWidth="384.0" />
+                <Label fx:id="tvMsg" alignment="TOP_LEFT" layoutX="20.0" layoutY="308.0" textFill="#d33737" />
+                <Label layoutX="415.0" layoutY="36.0" text="第一步" />
+                <Label layoutX="500.0" layoutY="108.0" text="第二步" />
+                <Label layoutX="304.0" layoutY="268.0" text="附加" />
+                <Label layoutX="26.0" layoutY="268.0" text="第四步" />
+                <Label layoutX="518.0" layoutY="216.0" text="第三步" />
+                <Button layoutX="680.0" layoutY="212.0" onAction="#signOld" text="旧v1签名" wrapText="true" />
+                <Button layoutX="566.0" layoutY="212.0" onAction="#signNew" text="新v1&amp;v2签名" wrapText="true" />
+                <Button layoutX="555.0" layoutY="32.0" onAction="#editKey" text="编辑密钥配置" wrapText="true" />
+                <Button layoutX="645.0" layoutY="32.0" onAction="#refreshKey" text="编辑后，刷新密钥配置" wrapText="true" />
+                <Label layoutX="20.0" layoutY="158.0" text="写入渠道" />
+                <RadioButton fx:id="rbYes" layoutX="98.0" layoutY="157.0" mnemonicParsing="false" text="是" />
+                <RadioButton fx:id="rbNo" layoutX="145.0" layoutY="157.0" mnemonicParsing="false" text="否" />
+                <Button fx:id="btnChannel" layoutX="214.0" layoutY="154.0" onAction="#openChannel" text="配置渠道" wrapText="true" />
+        </children>
 </AnchorPane>
