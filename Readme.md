@@ -14,6 +14,10 @@ apksigner.jar在版本>25的SDK\build-tools\中。
 
 ### 使用说明
 
+#### 运行环境
+1. Windows系统
+2. JDK1.8环境变量
+
 #### 1.下载源码编译运行
 
 1. clone/下载代码到你的电脑，导入到IDEA中运行，编译完成后，点击Run Main运行。
@@ -32,11 +36,13 @@ apksigner.jar在版本>25的SDK\build-tools\中。
   
 4. 修改代码，适应你的需求。
  
-#### 2.[下载zip运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.2)
+#### 2.[下载压缩包解压运行](https://github.com/iDeMonnnnnn/SignatureTools/releases/tag/v1.2)
 
-1. 解压后，双击"ApkSignTools.exe"运行签名程序。
+1. 下载附件[ApkSignTools.7z](https://github.com/DeMonJavaSpace/SignatureTools/releases/download/v1.2/ApkSignTools.7z)
+   
+2. 解压后，双击"ApkSignTools.exe"运行签名程序。
 
-2. 程序初始化后会先读取默认的签名配置文件（程序安装路径\app\config.xml）
+3. 程序初始化后会先读取默认的签名配置文件（程序安装路径\app\config.xml）
 
    - 点击“编辑密钥配置”编辑你的密钥配置。
  
@@ -46,7 +52,7 @@ apksigner.jar在版本>25的SDK\build-tools\中。
    
    - 可以参考config.xml格式，复制编辑保存成新未新的签名配置，签名前选择新密钥配置即可。
 
-3. 选择一个未签名的apk签名，配置渠道信息，然后打开签名后Apk的位置，验证签名状态。
+4. 选择一个未签名的apk签名，配置渠道信息，然后打开签名后Apk的位置，验证签名状态。
 
 ### Apk渠道相关
 
